@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PotsAndPotions.Core", "PotsAndPotions.Core\PotsAndPotions.Core.csproj", "{6EB480A4-F2D9-44F8-B2EF-AAF4895093DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PotsAndPotions.Core", "PotsAndPotions.Core\PotsAndPotions.Core.csproj", "{6EB480A4-F2D9-44F8-B2EF-AAF4895093DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PotsAndPotions.Core.Tests", "PotsAndPotions.Core.Tests\PotsAndPotions.Core.Tests.csproj", "{31B2B751-4686-478C-93E2-B26A22E74554}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PotsAndPotions.Simulation", "PotsAndPotions.Simulation\PotsAndPotions.Simulation.csproj", "{86E8A75C-1FF3-4E5C-ACD6-D05BE916C24B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{6EB480A4-F2D9-44F8-B2EF-AAF4895093DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EB480A4-F2D9-44F8-B2EF-AAF4895093DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EB480A4-F2D9-44F8-B2EF-AAF4895093DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31B2B751-4686-478C-93E2-B26A22E74554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31B2B751-4686-478C-93E2-B26A22E74554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31B2B751-4686-478C-93E2-B26A22E74554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31B2B751-4686-478C-93E2-B26A22E74554}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86E8A75C-1FF3-4E5C-ACD6-D05BE916C24B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86E8A75C-1FF3-4E5C-ACD6-D05BE916C24B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86E8A75C-1FF3-4E5C-ACD6-D05BE916C24B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86E8A75C-1FF3-4E5C-ACD6-D05BE916C24B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
