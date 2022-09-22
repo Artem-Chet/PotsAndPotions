@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PotsAndPotions.Core
+namespace PotsAndPotions.Core.Pot
 {
     public record PotSlot
     {

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PotsAndPotions.Core
+namespace PotsAndPotions.Core.Tests.Engine.Phases
 {
-    public class Stash
+    public class AlchemyPhaseTests
     {
-        public List<int> AllChips { get; } = new List<int>();
     }
 }

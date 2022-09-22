@@ -1,6 +1,7 @@
 ﻿using Moq.AutoMock;
 using PotsAndPotions.Core.Engine;
 using PotsAndPotions.Core.Engine.Phases;
+using PotsAndPotions.Core.Pot;
 using PotsAndPotions.Core.Status;
 using System;
 using System.Collections.Generic;
