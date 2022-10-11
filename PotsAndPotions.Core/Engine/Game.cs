@@ -1,4 +1,7 @@
 ﻿using Autofac;
+using Microsoft.Extensions.DependencyInjection;
+using PotsAndPotions.Core.Pot;
+using PotsAndPotions.Core.Status;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,19 +12,29 @@ namespace PotsAndPotions.Core.Engine
 {
     public class Game
     {
+        private readonly ServiceProvider serviceProvider;
+
         public Game()
         {
-            var builder = new ContainerBuilder();
+            var builder = new ServiceCollection();
 
-            builder.RegisterType<Turn>().As<ITurn>();
+            // Scope is per player for the entire game. It is up to the turn to reset state per turn.
+
+            builder.AddSingleton<TurnCounter>();
+            builder.AddSingleton<ITurn, Turn>();
+
+            builder.AddPotModule();
+
+            serviceProvider = builder.BuildServiceProvider();
         }
 
         public int Run()
         {
-            for(int i = 0; i < 9; i++)
+            for (int i = 0; i < 9; i++)
             {
-                var turn = new Turn();
-                
+                var turn = serviceProvider.GetRequiredService<ITurn>();
+
+                turn.DoTurn();
             }
 
             return 0;
