@@ -11,15 +11,23 @@ namespace PotsAndPotions.Core.Engine
     public class PlayerTurn : IPlayerTurn
     {
         private readonly IEnumerable<IResettablePerTurn> resettablePerTurns;
+        private readonly IEnumerable<IPhase> phases;
 
-        public PlayerTurn(IEnumerable<IResettablePerTurn> resettablePerTurns)
+        public PlayerTurn(IEnumerable<IResettablePerTurn> resettablePerTurns, IEnumerable<IPhase> phases)
         {
             this.resettablePerTurns = resettablePerTurns;
+            this.phases = phases;
         }
 
         public void DoTurn()
         {
-
+            foreach(var phase in phases)
+            {
+                if (phase.IsPlayerEligible())
+                {
+                    phase.RunPhase();
+                }
+            }
 
             ResetResettables();
         }

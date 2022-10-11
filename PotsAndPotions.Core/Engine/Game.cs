@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Microsoft.Extensions.DependencyInjection;
+using PotsAndPotions.Core.Engine.Phases;
 using PotsAndPotions.Core.Players;
 using PotsAndPotions.Core.Pot;
 using PotsAndPotions.Core.Status;
@@ -26,6 +27,10 @@ namespace PotsAndPotions.Core.Engine
             builder.AddSingleton<IPlayerTurn, PlayerTurn>();
 
             builder.AddPotModule();
+            builder.AddPhases();
+
+            builder.AddScoped<CrystalStash>();
+            builder.AddScoped<PlayerScore>();
 
             serviceProvider = builder.BuildServiceProvider();
         }

@@ -17,6 +17,9 @@ namespace PotsAndPotions.Core.Pot
             services.AddScoped<Stash>();
             services.AddScoped<IResettablePerTurn>(s => s.GetRequiredService<Stash>());
 
+            services.AddScoped<PotStatus>();
+            services.AddScoped<SpoiledStatus>();
+
             return services;
         }
     }

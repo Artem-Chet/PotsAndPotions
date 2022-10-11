@@ -1,4 +1,5 @@
-﻿using PotsAndPotions.Core.Status;
+﻿using PotsAndPotions.Core.Pot;
+using PotsAndPotions.Core.Status;
 using System;
 using System.Collections.Generic;
 using System.Linq;

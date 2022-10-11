@@ -1,4 +1,5 @@
-﻿using PotsAndPotions.Core.Status;
+﻿using PotsAndPotions.Core.Pot;
+using PotsAndPotions.Core.Status;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PotsAndPotions.Core.Engine.Phases
 {
-    public class ScorePhase
+    public class ScorePhase : IPhase
     {
         private readonly SpoiledStatus spoiledStatus;
         private readonly PlayerScore playerScore;

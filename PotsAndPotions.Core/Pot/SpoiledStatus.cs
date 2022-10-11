@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PotsAndPotions.Core.Status
+namespace PotsAndPotions.Core.Pot
 {
     public class SpoiledStatus
     {

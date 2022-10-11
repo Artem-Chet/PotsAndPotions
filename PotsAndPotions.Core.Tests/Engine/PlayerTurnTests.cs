@@ -32,5 +32,26 @@ namespace PotsAndPotions.Core.Tests.Engine
             mock1.Verify(x => x.ResetAfterTurn(), Times.Once());
             mock2.Verify(x => x.ResetAfterTurn(), Times.Once());
         }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void DoTurn_StartOfPhase_ChecksIfPhaseIsEligible(bool eligible)
+        {
+            var mocker = new AutoMocker();
+
+            var phase = new Mock<IPhase>();
+            phase.Setup(x => x.IsPlayerEligible())
+                .Returns(eligible);
+
+            mocker.Use<IEnumerable<IPhase>>(new List<IPhase> { phase.Object });
+
+            var turn = mocker.CreateInstance<PlayerTurn>();
+
+            turn.DoTurn();
+
+            phase.Verify(x => x.IsPlayerEligible(), Times.Once());
+            phase.Verify(x => x.RunPhase(), eligible ? Times.Once() : Times.Never());
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace PotsAndPotions.Core.Engine.Phases
 
         public void RunPhase()
         {
-            throw new NotImplementedException();
+
         }
     }
 }

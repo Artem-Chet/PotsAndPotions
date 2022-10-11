@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PotsAndPotions.Core.Pot;
 
-namespace PotsAndPotions.Core.Status
+namespace PotsAndPotions.Core.Pot
 {
     public class PotStatus
     {

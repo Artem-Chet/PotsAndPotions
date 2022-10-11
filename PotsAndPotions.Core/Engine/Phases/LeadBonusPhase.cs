@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace PotsAndPotions.Core.Engine.Phases
 {
-    public class LeadBonusPhase
+    public class LeadBonusPhase : IPhase
     {
         public bool IsPlayerEligible()
         {
             return true;
+        }
+
+        public void RunPhase()
+        {
+            
         }
     }
 }

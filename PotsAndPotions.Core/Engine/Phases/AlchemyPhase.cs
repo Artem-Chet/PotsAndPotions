@@ -10,12 +10,12 @@ namespace PotsAndPotions.Core.Engine.Phases
     {
         public bool IsPlayerEligible()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void RunPhase()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
