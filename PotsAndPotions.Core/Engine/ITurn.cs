@@ -2,6 +2,6 @@
 {
     public interface ITurn
     {
-        void DoTurn();
+        void DoTurn(IList<PlayerScope> playerScopes);
     }
 }

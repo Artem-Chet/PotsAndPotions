@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Microsoft.Extensions.DependencyInjection;
+using PotsAndPotions.Core.Players;
 using PotsAndPotions.Core.Pot;
 using PotsAndPotions.Core.Status;
 using System;
@@ -22,6 +23,7 @@ namespace PotsAndPotions.Core.Engine
 
             builder.AddSingleton<TurnCounter>();
             builder.AddSingleton<ITurn, Turn>();
+            builder.AddSingleton<IPlayerTurn, PlayerTurn>();
 
             builder.AddPotModule();
 
@@ -30,14 +32,24 @@ namespace PotsAndPotions.Core.Engine
 
         public int Run()
         {
+            var players = InitializePlayers();
+
             for (int i = 0; i < 9; i++)
             {
                 var turn = serviceProvider.GetRequiredService<ITurn>();
 
-                turn.DoTurn();
+                turn.DoTurn(players);
             }
 
             return 0;
+        }
+
+        public IList<PlayerScope> InitializePlayers()
+        {
+            return new List<PlayerScope>
+            {
+                new PlayerScope(new AllDefaultChoicesPlayer(), serviceProvider.CreateScope())
+            };
         }
     }
 }

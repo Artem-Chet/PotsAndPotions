@@ -11,29 +11,22 @@ namespace PotsAndPotions.Core.Engine
     public class Turn : ITurn
     {
         private readonly TurnCounter turnCounter;
-        private readonly IEnumerable<IResettablePerTurn> resettablePerTurns;
 
-        public Turn (TurnCounter turnCounter, IEnumerable<IResettablePerTurn> resettablePerTurns)
+        public Turn (TurnCounter turnCounter)
         {
             this.turnCounter = turnCounter;
-            this.resettablePerTurns = resettablePerTurns;
         }
 
-        public void DoTurn()
+        public void DoTurn(IList<PlayerScope> playerScopes)
         {
+            foreach(var playerScope in playerScopes)
+            {
+                var playerTurn = playerScope.Scope.ServiceProvider.GetRequiredService<IPlayerTurn>();
 
-
-            ResetResettables();
+                playerTurn.DoTurn();
+            }
 
             turnCounter.Turn += 1;
-        }
-
-        private void ResetResettables()
-        {
-            foreach(var resettable in resettablePerTurns)
-            {
-                resettable.ResetAfterTurn();
-            }
         }
     }
 }
