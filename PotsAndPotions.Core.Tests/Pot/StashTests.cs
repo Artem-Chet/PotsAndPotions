@@ -41,7 +41,7 @@ namespace PotsAndPotions.Core.Tests.Pot
         }
 
         [Fact]
-        public void Reset_OneChipDrawn_CanDrawAgain()
+        public void ResetAfterTurn_OneChipDrawn_CanDrawAgain()
         {
             var stash = new Stash();
 
@@ -51,7 +51,7 @@ namespace PotsAndPotions.Core.Tests.Pot
 
             Assert.Empty(stash.RemainingChips);
 
-            stash.Reset();
+            stash.ResetAfterTurn();
 
             Assert.Single(stash.RemainingChips);
         }

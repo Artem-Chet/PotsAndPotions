@@ -1,4 +1,5 @@
 ﻿using PotsAndPotions.Core.Chips;
+using PotsAndPotions.Core.Engine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,18 +8,13 @@ using System.Threading.Tasks;
 
 namespace PotsAndPotions.Core.Pot
 {
-    public class Stash
+    public class Stash : IResettablePerTurn
     {
         private Random random = new Random();
 
         public List<IChip> AllChips { get; } = new List<IChip>();
 
-        public List<IChip> RemainingChips { get; private set; } = new List<IChip>();
-        
-        public void Reset()
-        {
-            RemainingChips = AllChips.ToList();
-        }
+        public List<IChip> RemainingChips { get; private set; } = new List<IChip>();       
 
         public IChip? DrawSingle()
         {
@@ -42,6 +38,11 @@ namespace PotsAndPotions.Core.Pot
         {
             AllChips.Add(chip);
             RemainingChips.Add(chip);
+        }
+
+        public void ResetAfterTurn()
+        {
+            RemainingChips = AllChips.ToList();
         }
     }
 }
